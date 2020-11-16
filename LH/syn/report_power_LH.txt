@@ -1,0 +1,56 @@
+Information: Updating design information... (UID-85)
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : IIR_LH
+Version: O-2018.06-SP4
+Date   : Mon Nov 16 09:27:15 2020
+****************************************
+
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /software/dk/nangate45/synopsys/NangateOpenCellLibrary_typical_ecsm_nowlm.db)
+
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+IIR_LH                 5K_hvratio_1_1    NangateOpenCellLibrary
+
+
+Global Operating Voltage = 1.1  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+  Cell Internal Power  = 492.3251 uW   (63%)
+  Net Switching Power  = 285.9980 uW   (37%)
+                         ---------
+Total Dynamic Power    = 778.3231 uW  (100%)
+
+Cell Leakage Power     = 168.0286 uW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register         189.4761           41.0558        1.9414e+04          249.9464  (  26.41%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational    302.8481          244.9424        1.4861e+05          696.4051  (  73.59%)
+--------------------------------------------------------------------------------------------------
+Total            492.3242 uW       285.9983 uW     1.6803e+05 nW       946.3515 uW
+1

@@ -1,0 +1,126 @@
+Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.4 |     *     |
+| Licensed DW Building Blocks        | O-2018.06-DWBB_201806.4 |     *     |
+============================================================================
+
+
+Information: There are 1 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'reg_N1_0'
+  Processing 'reg_N12'
+  Processing 'myregister_N12_0'
+  Processing 'myregister_N14_0'
+  Processing 'myregister_N13'
+  Processing 'IIR_LH'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'IIR_LH_DW01_add_0'
+  Processing 'IIR_LH_DW01_add_1'
+  Processing 'IIR_LH_DW01_add_2'
+  Processing 'IIR_LH_DW01_add_3'
+  Processing 'IIR_LH_DW01_sub_0'
+  Processing 'IIR_LH_DW01_add_4'
+  Processing 'IIR_LH_DW01_sub_1'
+  Processing 'IIR_LH_DW01_sub_2'
+  Processing 'IIR_LH_DW01_add_5'
+  Mapping 'IIR_LH_DW_mult_tc_0'
+  Mapping 'IIR_LH_DW_mult_tc_1'
+  Mapping 'IIR_LH_DW_mult_tc_2'
+  Mapping 'IIR_LH_DW_mult_tc_3'
+  Mapping 'IIR_LH_DW_mult_tc_4'
+  Mapping 'IIR_LH_DW_mult_tc_5'
+  Mapping 'IIR_LH_DW_mult_tc_6'
+  Mapping 'IIR_LH_DW_mult_tc_7'
+  Mapping 'IIR_LH_DW_mult_tc_8'
+  Mapping 'IIR_LH_DW_mult_tc_9'
+  Mapping 'IIR_LH_DW_mult_tc_10'
+  Processing 'IIR_LH_DW01_sub_3'
+  Processing 'IIR_LH_DW01_add_6'
+  Processing 'IIR_LH_DW01_sub_4'
+  Processing 'IIR_LH_DW01_add_7'
+  Processing 'IIR_LH_DW01_sub_5'
+  Processing 'IIR_LH_DW01_add_8'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:01:03    8659.6      0.00       0.0     191.4                          
+    0:01:04    8659.6      0.00       0.0     191.4                          
+    0:01:04    8659.6      0.00       0.0     191.4                          
+    0:01:04    8659.6      0.00       0.0     191.4                          
+    0:01:05    8659.6      0.00       0.0     191.4                          
+    0:01:14    8206.9      0.00       0.0     143.7                          
+    0:01:14    8206.9      0.00       0.0     143.7                          
+    0:01:15    8206.9      0.00       0.0     143.7                          
+    0:01:15    8206.9      0.00       0.0     143.7                          
+    0:01:15    8206.9      0.00       0.0     143.7                          
+    0:01:16    8215.1      0.00       0.0      53.3                          
+    0:01:17    8218.3      0.00       0.0      27.4                          
+    0:01:17    8220.7      0.00       0.0      10.1                          
+    0:01:18    8222.3      0.00       0.0       0.0                          
+    0:01:18    8222.3      0.00       0.0       0.0                          
+    0:01:18    8222.3      0.00       0.0       0.0                          
+    0:01:18    8222.3      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:01:18    8222.3      0.00       0.0       0.0                          
+    0:01:18    8222.3      0.00       0.0       0.0                          
+    0:01:19    8222.3      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:01:19    8222.3      0.00       0.0       0.0                          
+    0:01:20    8222.3      0.00       0.0       0.0                          
+    0:01:22    8213.8      0.00       0.0       0.0                          
+    0:01:23    8211.2      0.00       0.0       0.0                          
+    0:01:23    8210.1      0.00       0.0       0.0                          
+    0:01:23    8209.0      0.00       0.0       0.0                          
+    0:01:24    8208.5      0.00       0.0       0.0                          
+    0:01:24    8208.5      0.00       0.0       0.0                          
+    0:01:24    8208.5      0.00       0.0       0.0                          
+    0:01:25    8208.5      0.00       0.0       0.0                          
+    0:01:25    8208.5      0.00       0.0       0.0                          
+    0:01:25    8208.5      0.00       0.0       0.0                          
+    0:01:25    8208.5      0.00       0.0       0.0                          
+    0:01:25    8208.5      0.00       0.0       0.0                          
+    0:01:26    8208.5      0.00       0.0       0.0                          
+Loading db file '/software/dk/nangate45/synopsys/NangateOpenCellLibrary_typical_ecsm_nowlm.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1

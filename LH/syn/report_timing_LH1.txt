@@ -1,0 +1,116 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : IIR_LH
+Version: O-2018.06-SP4
+Date   : Mon Nov 16 09:21:41 2020
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: REG_COEFF_B1/DATA_OUT_reg[1]
+              (rising edge-triggered flip-flop clocked by MY_CLK)
+  Endpoint: REG_Z3/DATA_OUT_reg[11]
+            (rising edge-triggered flip-flop clocked by MY_CLK)
+  Path Group: MY_CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  IIR_LH             5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock MY_CLK (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  REG_COEFF_B1/DATA_OUT_reg[1]/CK (DFF_X1)                0.00       0.00 r
+  REG_COEFF_B1/DATA_OUT_reg[1]/Q (DFF_X1)                 0.09       0.09 r
+  REG_COEFF_B1/DATA_OUT[1] (myregister_N12_9)             0.00       0.09 r
+  U23/Z (BUF_X1)                                          0.06       0.15 r
+  mult_104/a[1] (IIR_LH_DW_mult_tc_10)                    0.00       0.15 r
+  mult_104/U330/Z (BUF_X1)                                0.12       0.27 r
+  mult_104/U536/Z (XOR2_X1)                               0.11       0.38 r
+  mult_104/U329/ZN (INV_X1)                               0.07       0.44 f
+  mult_104/U528/ZN (NAND2_X1)                             0.11       0.55 r
+  mult_104/U387/ZN (OAI22_X1)                             0.06       0.61 f
+  mult_104/U81/S (HA_X1)                                  0.08       0.69 f
+  mult_104/U525/ZN (AOI222_X1)                            0.11       0.80 r
+  mult_104/U331/ZN (INV_X1)                               0.03       0.83 f
+  mult_104/U524/ZN (AOI222_X1)                            0.09       0.92 r
+  mult_104/U326/ZN (INV_X1)                               0.03       0.95 f
+  mult_104/U523/ZN (AOI222_X1)                            0.09       1.04 r
+  mult_104/U325/ZN (INV_X1)                               0.03       1.07 f
+  mult_104/U522/ZN (AOI222_X1)                            0.09       1.16 r
+  mult_104/U324/ZN (INV_X1)                               0.03       1.19 f
+  mult_104/U521/ZN (AOI222_X1)                            0.11       1.30 r
+  mult_104/U520/ZN (OAI222_X1)                            0.07       1.37 f
+  mult_104/U519/ZN (AOI222_X1)                            0.11       1.48 r
+  mult_104/U518/ZN (OAI222_X1)                            0.07       1.54 f
+  mult_104/U15/CO (FA_X1)                                 0.10       1.64 f
+  mult_104/U14/CO (FA_X1)                                 0.09       1.73 f
+  mult_104/U13/CO (FA_X1)                                 0.09       1.82 f
+  mult_104/U12/CO (FA_X1)                                 0.09       1.91 f
+  mult_104/U11/CO (FA_X1)                                 0.09       2.00 f
+  mult_104/U10/CO (FA_X1)                                 0.09       2.09 f
+  mult_104/U9/CO (FA_X1)                                  0.09       2.18 f
+  mult_104/U8/CO (FA_X1)                                  0.09       2.27 f
+  mult_104/U7/S (FA_X1)                                   0.13       2.41 r
+  mult_104/product[19] (IIR_LH_DW_mult_tc_10)             0.00       2.41 r
+  sub_0_root_add_0_root_sub_105/B[8] (IIR_LH_DW01_sub_5)
+                                                          0.00       2.41 r
+  sub_0_root_add_0_root_sub_105/U13/ZN (INV_X1)           0.02       2.43 f
+  sub_0_root_add_0_root_sub_105/U2_8/CO (FA_X1)           0.10       2.53 f
+  sub_0_root_add_0_root_sub_105/U2_9/S (FA_X1)            0.18       2.71 r
+  sub_0_root_add_0_root_sub_105/DIFF[9] (IIR_LH_DW01_sub_5)
+                                                          0.00       2.71 r
+  mult_130/b[9] (IIR_LH_DW_mult_tc_4)                     0.00       2.71 r
+  mult_130/U560/Z (XOR2_X1)                               0.08       2.79 r
+  mult_130/U559/ZN (NAND2_X1)                             0.09       2.87 f
+  mult_130/U501/ZN (OAI22_X1)                             0.08       2.96 r
+  mult_130/U79/S (HA_X1)                                  0.09       3.05 r
+  mult_130/U77/S (FA_X1)                                  0.12       3.17 f
+  mult_130/U76/S (FA_X1)                                  0.11       3.28 f
+  mult_130/U567/ZN (AOI222_X1)                            0.11       3.39 r
+  mult_130/U350/ZN (INV_X1)                               0.03       3.42 f
+  mult_130/U566/ZN (AOI222_X1)                            0.09       3.51 r
+  mult_130/U354/ZN (INV_X1)                               0.03       3.54 f
+  mult_130/U15/CO (FA_X1)                                 0.09       3.63 f
+  mult_130/U14/CO (FA_X1)                                 0.09       3.72 f
+  mult_130/U13/CO (FA_X1)                                 0.09       3.81 f
+  mult_130/U12/CO (FA_X1)                                 0.09       3.90 f
+  mult_130/U11/CO (FA_X1)                                 0.09       3.99 f
+  mult_130/U10/CO (FA_X1)                                 0.09       4.08 f
+  mult_130/U9/CO (FA_X1)                                  0.09       4.17 f
+  mult_130/U8/CO (FA_X1)                                  0.09       4.26 f
+  mult_130/U7/CO (FA_X1)                                  0.09       4.35 f
+  mult_130/U6/CO (FA_X1)                                  0.09       4.44 f
+  mult_130/U5/CO (FA_X1)                                  0.09       4.53 f
+  mult_130/U385/Z (XOR2_X1)                               0.07       4.60 f
+  mult_130/U384/Z (XOR2_X1)                               0.07       4.68 f
+  mult_130/U379/Z (XOR2_X1)                               0.07       4.74 f
+  mult_130/product[22] (IIR_LH_DW_mult_tc_4)              0.00       4.74 f
+  REG_Z3/DATA_IN[11] (myregister_N12_6)                   0.00       4.74 f
+  REG_Z3/U11/ZN (AOI22_X1)                                0.04       4.79 r
+  REG_Z3/U10/ZN (INV_X1)                                  0.02       4.81 f
+  REG_Z3/DATA_OUT_reg[11]/D (DFF_X1)                      0.01       4.82 f
+  data arrival time                                                  4.82
+
+  clock MY_CLK (rise edge)                                9.60       9.60
+  clock network delay (ideal)                             0.00       9.60
+  clock uncertainty                                      -0.07       9.53
+  REG_Z3/DATA_OUT_reg[11]/CK (DFF_X1)                     0.00       9.53 r
+  library setup time                                     -0.04       9.49
+  data required time                                                 9.49
+  --------------------------------------------------------------------------
+  data required time                                                 9.49
+  data arrival time                                                 -4.82
+  --------------------------------------------------------------------------
+  slack (MET)                                                        4.67
+
+
+1
