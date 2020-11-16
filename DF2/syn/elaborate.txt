@@ -1,0 +1,81 @@
+Loading db file '/software/synopsys/syn_current_64.18/libraries/syn/gtech.db'
+Loading db file '/software/synopsys/syn_current_64.18/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Warning:  ../src/IIR_DF2_filter.vhd:43: The initial value for signal 'OUTPUT' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:43: The initial value for signal 'V_OUT' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:43: The initial value for signal 'VOUT_S' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:43: The initial value for signal 'VIN_S' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:43: The initial value for signal 'EN' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:46: The initial value for signal 'T0' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:47: The initial value for signal 'T1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:48: The initial value for signal 'T2' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:49: The initial value for signal 'D1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:49: The initial value for signal 'D2' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:49: The initial value for signal 'D3' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:49: The initial value for signal 'D4' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:49: The initial value for signal 'D5' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:50: The initial value for signal 'zeros' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:51: The initial value for signal 'FF' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:55: The initial value for signal 'Z1_OUT' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:55: The initial value for signal 'Z2_OUT' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:56: The initial value for signal 'M1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:56: The initial value for signal 'M2' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:56: The initial value for signal 'M3' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:56: The initial value for signal 'M4' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:56: The initial value for signal 'M5' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Warning:  ../src/IIR_DF2_filter.vhd:58: The initial value for signal 'Y' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+
+Inferred memory devices in process
+	in routine IIR_DF2_filter line 62 in file
+		'../src/IIR_DF2_filter.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     OUTPUT_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      VOUT_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      DOUT_reg       | Flip-flop |  12   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       EN_reg        | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     VOUT_S_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'IIR_DF2_filter'.
+Information: Building the design 'myregister' instantiated from design 'IIR_DF2_filter' with
+	the parameters "N=12". (HDL-193)
+
+Inferred memory devices in process
+	in routine myregister_N12 line 18 in file
+		'../src/myregister.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    DATA_OUT_reg     | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'reg' instantiated from design 'IIR_DF2_filter' with
+	the parameters "N=1". (HDL-193)
+
+Inferred memory devices in process
+	in routine reg_N1 line 18 in file
+		'../src/reg.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    DATA_OUT_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'myregister' instantiated from design 'IIR_DF2_filter' with
+	the parameters "N=13". (HDL-193)
+
+Inferred memory devices in process
+	in routine myregister_N13 line 18 in file
+		'../src/myregister.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    DATA_OUT_reg     | Flip-flop |  13   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+1
