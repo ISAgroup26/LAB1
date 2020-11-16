@@ -1,0 +1,139 @@
+---------------------------------
+ -- DIGITAL FILTER IIR FORM 2 ----
+ -- GROUP 26 - ISA2020 -----------
+ ---------------------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+use IEEE.math_real.all;
+
+ENTITY IIR_DF2_filter IS
+	PORT (CLK,RST_n : IN STD_LOGIC;
+			VIN: IN STD_LOGIC;
+			VOUT: OUT STD_LOGIC;
+			a0,a1,a2,b1,b2: IN SIGNED (11 DOWNTO 0); 
+			DIN: IN SIGNED (11 DOWNTO 0); --sample
+			DOUT: OUT SIGNED (11 DOWNTO 0));
+END IIR_DF2_filter;
+
+ARCHITECTURE Behavioural OF IIR_DF2_filter IS
+
+COMPONENT myregister IS
+	GENERIC (N: INTEGER:=12);
+	PORT(DATA_IN: IN SIGNED (N-1 DOWNTO 0);
+		  EN: IN STD_LOGIC;
+		  CLK, RST_n: IN STD_LOGIC;
+		  DATA_OUT: OUT SIGNED (N-1 DOWNTO 0));
+END COMPONENT;
+
+COMPONENT reg IS
+	GENERIC (N: INTEGER:=1);
+	PORT(DATA_IN: IN STD_LOGIC;
+		  EN: IN STD_LOGIC;
+		  CLK, RST_n: IN STD_LOGIC;
+		  DATA_OUT: OUT STD_LOGIC);
+END COMPONENT;
+
+-- input signals
+SIGNAL INPUT_SAMPLE,DIN_DELAY: SIGNED (11 DOWNTO 0); 
+SIGNAL A0_COEFF, A1_COEFF, A2_COEFF: SIGNED (11 DOWNTO 0);
+SIGNAL B1_COEFF, B2_COEFF: SIGNED (11 DOWNTO 0);
+
+SIGNAL N: INTEGER;
+SIGNAL OUTPUT,V_OUT, VOUT_S, VIN_S, EN: STD_LOGIC := '0';
+
+-- internal signals
+SIGNAL T0: SIGNED (11 DOWNTO 0) := (others=>'0');
+SIGNAL T1: SIGNED (12 DOWNTO 0) := (others=>'0');
+SIGNAL T2: SIGNED (11 DOWNTO 0) := (others=>'0');
+SIGNAL D1,D2,D3,D4,D5: SIGNED (10 DOWNTO 0):= (others=>'0');
+SIGNAL zeros: SIGNED (11 DOWNTO 0) := (others=>'0');
+SIGNAL FF: SIGNED (12 DOWNTO 0) := (others=>'0'); 
+--SIGNAL FB_1,FF_1: SIGNED (11 DOWNTO 0) := (others=>'0');
+--SIGNAL T1_p: SIGNED (12 DOWNTO 0) := (others=>'0');
+-- out signals
+SIGNAL Z1_OUT, Z2_OUT: SIGNED (12 DOWNTO 0):= (others=>'0');
+SIGNAL M1,M2,M3,M4,M5: SIGNED (24 DOWNTO 0):= (others=>'0');
+SIGNAL OUT_REG: SIGNED (11 DOWNTO 0);
+SIGNAL Y: SIGNED (11 DOWNTO 0):= (others=>'0');
+
+BEGIN	
+
+PROCESS (CLK,RST_n)
+	BEGIN
+		IF (RST_n = '0') THEN
+			VOUT<='0';
+			DOUT<=(others=>'0');
+			EN <= '0';
+			ELSIF (CLK='1' AND CLK'EVENT) THEN
+				EN <= '1';
+				IF VIN_S = '1' THEN
+					DOUT<= OUT_REG;
+					VOUT<= V_OUT;
+					OUTPUT<='1';
+					VOUT_S<='1';
+				ELSE
+					OUTPUT<='0';
+					VOUT_S<='0';
+					DOUT<= OUT_REG;	
+					VOUT<= V_OUT;
+				END IF;
+			END IF;
+END PROCESS;
+
+-- implementation
+M1 <= Z1_OUT * (-B1_COEFF);
+D1 <= M1(21 DOWNTO 11);
+
+M2 <= Z2_OUT * (-B2_COEFF);
+D2 <= M2(21 DOWNTO 11);
+
+T0 <= zeros + D1 + D2;--12
+
+M3 <= Z1_OUT * A1_COEFF;
+D3 <= M3(21 DOWNTO 11);
+
+M4 <= Z2_OUT * A2_COEFF;
+D4 <= M4(21 DOWNTO 11);
+
+T2 <= zeros + D3 + D4;--12
+
+T1 <= ('0' & zeros) + INPUT_SAMPLE + T0;--13
+
+M5 <= T1 * A0_COEFF;
+D5 <= M5(21 DOWNTO 11); --11
+
+FF <= ('0' & zeros) + D5 + T2;--13
+
+Y  <= FF(11 DOWNTO 0);    
+									
+-- INPUT REGISTER
+-- we have a1,a2 and b0,b1,b2
+REG_IN_DELAY: myregister GENERIC MAP(N=>12) 
+			 PORT MAP (DIN,'1',CLK,RST_n,DIN_DELAY);
+REG_DATA_IN: myregister GENERIC MAP(N=>12) 
+								PORT MAP (DIN_DELAY,VIN_S,CLK,RST_n,INPUT_SAMPLE);
+REG_VIN: reg GENERIC MAP(N=>1) 
+								PORT MAP (VIN,EN,CLK,RST_n,VIN_S);
+REG_COEFF_A0: myregister GENERIC MAP (N=>12)
+								 PORT MAP (a0,EN,CLK,RST_n,A0_COEFF);
+REG_COEFF_A1: myregister GENERIC MAP (N=>12)
+								 PORT MAP (a1,EN,CLK,RST_n,A1_COEFF);
+REG_COEFF_A2: myregister GENERIC MAP (N=>12)
+								 PORT MAP (a2,EN,CLK,RST_n,A2_COEFF);								
+REG_COEFF_B1: myregister GENERIC MAP (N=>12)
+								 PORT MAP (b1,EN,CLK,RST_n,B1_COEFF);								
+REG_COEFF_B2: myregister GENERIC MAP (N=>12)
+								 PORT MAP (b2,EN,CLK,RST_n,B2_COEFF);
+REG_DATA_OUT: myregister GENERIC MAP(N=>12) 
+								 PORT MAP (Y,VOUT_S,CLK,RST_n,OUT_REG);
+REG_VOUT: reg GENERIC MAP(N=>1) 
+								 PORT MAP (VOUT_S,EN,CLK,RST_n,V_OUT);
+-- INTERNAL REGISTER
+REG_Z1: myregister GENERIC MAP (N=>13)
+						 PORT MAP (T1,OUTPUT,CLK,RST_n,Z1_OUT);
+REG_Z2: myregister GENERIC MAP (N=>13)
+						 PORT MAP (Z1_OUT,OUTPUT,CLK,RST_n,Z2_OUT);				
+	
+END Behavioural; 
+
